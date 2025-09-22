@@ -111,18 +111,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'topnet_client.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+
+import dj_database_url
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'topnet_db',
-        'USER': 'postgres',
-        'PASSWORD': '1995',
-        'HOST': 'localhost',
-        'PORT': '5433',
-    }
+    'default': dj_database_url.config(conn_max_age=600)
 }
 
 
