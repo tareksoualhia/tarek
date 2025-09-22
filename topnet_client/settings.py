@@ -229,3 +229,9 @@ CHANNEL_LAYERS = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",
 ]
+
+ALLOWED_HOSTS = [
+    'tarek-zyb.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
