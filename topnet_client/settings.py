@@ -9,6 +9,9 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+import os
+from dotenv import load_dotenv
+load_dotenv()  # ✅ Load .env before anything else
 
 from pathlib import Path
 
@@ -112,10 +115,15 @@ WSGI_APPLICATION = 'topnet_client.wsgi.application'
 
 
 
-import dj_database_url
-
 DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600)
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'tarek_db',
+        'USER': 'tarek_db_user',
+        'PASSWORD': 'ksiybUlXqXdY3SZ56VbUzaryiGnIw3ch',
+        'HOST': 'dpg-d38jg2ruibrs739smleg-a',
+        'PORT': '5432',
+    }
 }
 
 
