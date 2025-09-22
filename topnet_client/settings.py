@@ -210,8 +210,9 @@ AUTHENTICATION_BACKENDS = [
 import os
 from dotenv import load_dotenv
 
-load_dotenv()  # ✅ Loads variables from .env file
+load_dotenv()  # ✅ Loads variables from .env
 
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
 
 
