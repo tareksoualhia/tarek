@@ -231,7 +231,7 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 ALLOWED_HOSTS = [
-    'tarek-zyb.onrender.com',
+    'tarek-zryb.onrender.com',
     'localhost',
     '127.0.0.1',
 ]
