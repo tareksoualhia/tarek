@@ -264,7 +264,7 @@ class ForgotPasswordView(APIView):
         }
 
         # Build reset link
-        reset_link = f"http://localhost:4200/resetpassword/{client.id}/{token}/"
+        reset_link = f"https://front-o99d.onrender.com/resetpassword/{client.id}/{token}/"
 
         # Send email
         send_mail(
