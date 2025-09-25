@@ -229,10 +229,12 @@ CHANNEL_LAYERS = {
 }
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",
+    "https://front-o99d.onrender.com",
 ]
 
 ALLOWED_HOSTS = [
     'tarek-zryb.onrender.com',
+    'https://front-o99d.onrender.com',
     'localhost',
     '127.0.0.1',
 ]
