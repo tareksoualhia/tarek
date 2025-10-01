@@ -131,7 +131,7 @@ DATABASES = {
         'NAME': 'tarek_db',
         'USER': 'tarek_db_user',
         'PASSWORD': 'ksiybUlXqXdY3SZ56VbUzaryiGnIw3ch',
-        'HOST': 'dpg-d38jg2ruibrs739smleg-a',
+        'HOST': 'dpg-s438p1u2t7as9v7r3n1g-a.render.com',
         'PORT': '5432',
     }
 }
