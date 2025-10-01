@@ -123,14 +123,18 @@ WSGI_APPLICATION = 'topnet_client.wsgi.application'
 
 
 
-import dj_database_url
-
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv("DATABASE_URL"),
-        conn_max_age=600,
-        ssl_require=True  # Use this if your DB requires SSL (Render usually does)
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'tarek_db',
+        'USER': 'tarek_db_user',
+        'PASSWORD': 'ksiybUlXqXdY3SZ56VbUzaryiGnIw3ch',
+        'HOST': 'dpg-s438p1u2t7as9v7r3n1g-a.render.com',  # Use full external hostname
+        'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'require'  # Optional: use if your DB requires SSL
+        }
+    }
 }
 
 
