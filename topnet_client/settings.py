@@ -13,9 +13,11 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
-SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+SECRET_KEY = os.getenv("SECRET_KEY")
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
 import os
 from dotenv import load_dotenv
@@ -129,11 +131,8 @@ DATABASES = {
         'NAME': 'tarek_db',
         'USER': 'tarek_db_user',
         'PASSWORD': 'ksiybUlXqXdY3SZ56VbUzaryiGnIw3ch',
-        'HOST': 'dpg-s438p1u2t7as9v7r3n1g-a.render.com',  # Use full external hostname
+        'HOST': 'dpg-d38jg2ruibrs739smleg-a',
         'PORT': '5432',
-        'OPTIONS': {
-            'sslmode': 'require'  # Optional: use if your DB requires SSL
-        }
     }
 }
 
