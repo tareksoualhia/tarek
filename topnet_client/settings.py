@@ -132,7 +132,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': '1995',
         'HOST': '127.0.0.1',
-        'PORT': '543',  # ✅ THIS is the magic number
+        'PORT': '5433',  # ✅ THIS is the magic number
     }
 }
 
