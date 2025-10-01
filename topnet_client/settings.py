@@ -129,12 +129,16 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'topnet_db',
-        'USER': 'postgres',  # or whatever username you use
+        'USER': 'postgres',
         'PASSWORD': '1995',
-        'HOST': 'localhost',  # or '127.0.0.1'
+        'HOST': '127.0.0.1',  # Use IP instead of 'localhost' to avoid IPv6 issues
         'PORT': '5432',
+        'OPTIONS': {
+            'connect_timeout': 10  # Optional: helps Jenkins fail fast if DB is unreachable
+        }
     }
 }
+
 
 
 
