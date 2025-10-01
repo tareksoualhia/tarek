@@ -123,15 +123,14 @@ WSGI_APPLICATION = 'topnet_client.wsgi.application'
 
 
 
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tarek_db',
-        'USER': 'tarek_db_user',
-        'PASSWORD': 'ksiybUlXqXdY3SZ56VbUzaryiGnIw3ch',
-        'HOST': 'dpg-d38jg2ruibrs739smleg-a',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(
+        default=os.getenv("DATABASE_URL"),
+        conn_max_age=600,
+        ssl_require=True  # Use this if your DB requires SSL (Render usually does)
+    )
 }
 
 
