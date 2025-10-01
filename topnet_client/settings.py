@@ -129,12 +129,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'tarek_db',
-        'USER': 'tarek_db_user',
-        'PASSWORD': 'ksiybUlXqXdY3SZ56VbUzaryiGnIw3ch',
-        'HOST': 'dpg-s438p1u2t7as9v7r3n1g-a.render.com',
+        'USER': 'tarek',  # or whatever username you use
+        'PASSWORD': '1995',
+        'HOST': 'localhost',  # or '127.0.0.1'
         'PORT': '5432',
     }
 }
+
 
 
 # Password validation
