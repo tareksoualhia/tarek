@@ -1,10 +1,8 @@
-# core/seed.py
 from core.models import Admin
 from django.contrib.auth.hashers import make_password
-from django.db.utils import IntegrityError
 
 def seed_admin():
-    try:
+    if not Admin.objects.filter(email='soualhia.tarek@esprit.tn').exists():
         Admin.objects.create(
             nom='Soualhia',
             prenom='Tarek',
@@ -13,6 +11,6 @@ def seed_admin():
             telephone='123456789',
             role='superadmin'
         )
-        print("✅ Admin seeded successfully")
-    except IntegrityError:
-        print("⚠️ Admin already exists")
+        print("Admin seeded successfully")
+    else:
+        print("Admin already exists")
