@@ -128,7 +128,7 @@ WSGI_APPLICATION = 'topnet_client.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tarek_db',
+        'NAME': 'topnet_db',
         'USER': 'postgres',  # or whatever username you use
         'PASSWORD': '1995',
         'HOST': 'localhost',  # or '127.0.0.1'
