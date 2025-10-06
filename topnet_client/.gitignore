@@ -1,0 +1,19 @@
+# Secrets
+.env
+
+# Python
+*.pyc
+__pycache__/
+db.sqlite3
+
+# Django
+/staticfiles/
+/media/
+/*.log
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: topnet_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "1995"
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  web:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DJANGO_DB_HOST=db
+      - DJANGO_DB_PORT=5432
+      - DJANGO_DB_NAME=topnet_db
+      - DJANGO_DB_USER=postgres
+      - DJANGO_DB_PASSWORD=1995
+
+volumes:
+  db_data:
