@@ -1,0 +1,22 @@
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+    <input name="nom" [(ngModel)]="formData.nom" placeholder="Nom" required />
+    <input name="prenom" [(ngModel)]="formData.prenom" placeholder="Prénom" required />
+    <input name="email" [(ngModel)]="formData.email" placeholder="Email" type="email" required />
+    <input name="password" [(ngModel)]="formData.password" placeholder="Mot de passe" type="password" required />
+  
+    <input name="telephone" [(ngModel)]="formData.telephone" placeholder="Téléphone" />
+    <input name="rue" [(ngModel)]="formData.rue" placeholder="Rue" />
+    <input name="gouvernorat" [(ngModel)]="formData.gouvernorat" placeholder="Gouvernorat" />
+    <input name="delegation" [(ngModel)]="formData.delegation" placeholder="Délégation" />
+    <input name="localite" [(ngModel)]="formData.localite" placeholder="Localité" />
+    <input name="ville" [(ngModel)]="formData.ville" placeholder="Ville" />
+    <input name="code_postal" [(ngModel)]="formData.code_postal" placeholder="Code Postal" />
+  
+    <button type="submit">S'inscrire</button>
+  </form>
+  
+  <!-- ✅ Ajout pour afficher les erreurs -->
+  <div *ngIf="errorMessage" style="color: red;">
+    {{ errorMessage }}
+  </div>
+  

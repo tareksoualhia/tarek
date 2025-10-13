@@ -1,0 +1,23 @@
+<h2>📋 Mes Réclamations</h2>
+
+
+  <div *ngFor="let r of reclamations" class="reclamation-card">
+    <h3>📌 {{ r.offre || 'Sans offre' }}</h3>
+    <p><strong>Service :</strong> {{ r.service }}</p>
+    <p><strong>Catégorie :</strong> {{ r.categorie }}</p>
+    <p><strong>Motif :</strong> {{ r.motif }}</p>
+    <p><strong>Message :</strong> {{ r.message }}</p>
+    
+    <p>
+      <strong>Statut :</strong>
+      <span [ngClass]="{
+        'status-pending': r.status === 'pending',
+        'status-progress': r.status === 'in_progress',
+        'status-resolved': r.status === 'resolved'
+      }">
+        {{ r.status | titlecase }}
+      </span>
+    </p>
+
+    <small>📅 Créée le : {{ r.created_at | date: 'short' }}</small>
+  </div>

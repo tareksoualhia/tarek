@@ -1,0 +1,74 @@
+<div class="container mt-4">
+  <h2>🛒 Mon Panier</h2>
+
+  <table class="table table-bordered" *ngIf="cart.length > 0; else emptyCart">
+    <thead>
+      <tr>
+        <th>Produit</th>
+        <th>Prix</th>
+        <th>Quantité</th>
+        <th>Total</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cart; let i = index">
+        <td>{{ item.name }}</td>
+        <td>{{ item.price }} TND</td>
+        <td>
+          <input type="number" [(ngModel)]="item.quantity" (change)="updateQuantity(i, item.quantity)" min="1" class="form-control" />
+        </td>
+        <td>{{ item.price * item.quantity }} TND</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="removeItem(i)">🗑 Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #emptyCart>
+    <div class="alert alert-info text-center">Votre panier est vide.</div>
+  </ng-template>
+
+  <div class="mt-4" *ngIf="cart.length > 0">
+    <h4>Total: {{ getTotal() }} TND</h4>
+
+    <div class="mb-3">
+      <label for="card-element" class="form-label">Informations de carte</label>
+      <div id="card-element" class="form-control p-2"></div>
+    </div>
+
+    <button class="btn btn-primary w-100" (click)="checkout()">💳 Payer</button>
+  </div>
+
+  <!-- 🧾 Purchase History Section -->
+  <div class="mt-5">
+    <h3>🧾 Historique des Achats</h3>
+
+    <div *ngIf="purchaseHistory.length === 0" class="alert alert-secondary text-center">
+      Aucun achat enregistré pour le moment.
+    </div>
+
+    <table class="table table-striped" *ngIf="purchaseHistory.length > 0">
+      <thead>
+        <tr>
+          <th>Produit</th>
+          <th>Quantité</th>
+          <th>Prix</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of purchaseHistory">
+          <td>{{ item.product_name }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.price }} TND</td>
+          <td>
+            <span class="badge bg-success" *ngIf="item.paid">Payé</span>
+            <span class="badge bg-danger" *ngIf="!item.paid">Non payé</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="video-call-container">
+  <h2>🎥 Assistance Vidéo</h2>
+
+  <div *ngIf="message" class="status">{{ message }}</div>
+
+  <div class="video-wrapper">
+    <video #localVideo autoplay muted playsinline></video>
+    <video #remoteVideo autoplay playsinline></video>
+  </div>
+
+  <div class="status">
+    {{ message || '🕒 En attente de l’appel...' }}
+  </div>
+</div>

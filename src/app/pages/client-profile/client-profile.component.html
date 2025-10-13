@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card shadow-sm">
+      <div class="card-header bg-light border-bottom">
+        <h5 class="mb-1 fw-semibold">Informations du client</h5>
+        <small class="text-muted">Voici les informations personnelles du client connecté.</small>
+      </div>
+      <div class="card-body" *ngIf="client; else loading">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <p class="mb-1"><strong>Nom</strong></p>
+            <p class="text-muted">{{ client.nom }}</p>
+          </div>
+          <div class="col-md-6">
+            <p class="mb-1"><strong>Prénom</strong></p>
+            <p class="text-muted">{{ client.prenom }}</p>
+          </div>
+          <div class="col-md-6">
+            <p class="mb-1"><strong>Email</strong></p>
+            <p class="text-muted">{{ client.email }}</p>
+          </div>
+          <div class="col-md-6">
+            <p class="mb-1"><strong>Téléphone</strong></p>
+            <p class="text-muted">{{ client.telephone || 'Non renseigné' }}</p>
+          </div>
+          <div class="col-md-6">
+            <p class="mb-1"><strong>Rue</strong></p>
+            <p class="text-muted">{{ client.rue || 'Non renseigné' }}</p>
+          </div>
+          <div class="col-md-6">
+            <p class="mb-1"><strong>Gouvernorat</strong></p>
+            <p class="text-muted">{{ client.gouvernorat }}</p>
+          </div>
+          <div class="col-md-6">
+            <p class="mb-1"><strong>Délégation</strong></p>
+            <p class="text-muted">{{ client.delegation }}</p>
+          </div>
+          <div class="col-md-6">
+            <p class="mb-1"><strong>Localité</strong></p>
+            <p class="text-muted">{{ client.localite }}</p>
+          </div>
+          <div class="col-md-6">
+            <p class="mb-1"><strong>Ville</strong></p>
+            <p class="text-muted">{{ client.ville }}</p>
+          </div>
+          <div class="col-md-6">
+            <p class="mb-1"><strong>Code Postal</strong></p>
+            <p class="text-muted">{{ client.code_postal }}</p>
+          </div>
+        </div>
+
+        <!-- ✅ Bouton pour modifier le profil -->
+        <div class="text-end">
+          <button class="btn btn-primary" (click)="goToUpdateProfile()">
+            ✏️ Modifier mon profil
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="text-center mt-4">
+    <div class="spinner-border text-primary" role="status"></div>
+    <p class="mt-2">Chargement des informations du client...</p>
+  </div>
+</ng-template>
