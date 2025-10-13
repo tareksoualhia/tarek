@@ -1,0 +1,33 @@
+<div class="container mt-4">
+    <h2>Add New Product</h2>
+  
+    <form (ngSubmit)="onSubmit()" #productForm="ngForm">
+      <div class="mb-3">
+        <label>Name:</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="product.name" required />
+      </div>
+  
+      <div class="mb-3">
+        <label>Description:</label>
+        <textarea class="form-control" name="description" [(ngModel)]="product.description" required></textarea>
+      </div>
+  
+      <div class="mb-3">
+        <label>Price:</label>
+        <input type="number" class="form-control" name="price" [(ngModel)]="product.price" required />
+      </div>
+  
+      <div class="mb-3">
+        <label>Stock:</label>
+        <input type="number" class="form-control" name="stock" [(ngModel)]="product.stock" required />
+      </div>
+  
+      <div class="mb-3">
+        <label>Image:</label>
+        <input type="file" class="form-control" (change)="onFileChange($event)" />
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Add Product</button>
+    </form>
+  </div>
+  

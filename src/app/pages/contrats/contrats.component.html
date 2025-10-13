@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <h2>Liste des Contrats</h2>
+
+  <div *ngIf="contrats.length === 0">
+    <p>Aucun contrat trouvé.</p>
+  </div>
+
+  <div *ngFor="let contrat of contrats" class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ contrat.code_contrat }} - {{ contrat.designation }}</h5>
+      <p><strong>Début:</strong> {{ contrat.date_debut }}</p>
+      <p><strong>Fin:</strong> {{ contrat.date_fin }}</p>
+      <p><strong>Statut:</strong> {{ contrat.statut_commercial }}</p>
+ <p><strong>montant:</strong> {{ contrat.montant }}</p>
+      <div class="d-flex gap-2">
+        <button class="btn btn-primary btn-sm" (click)="editContrat(contrat.id)">Modifier</button>
+        <button class="btn btn-danger btn-sm" (click)="deleteContrat(contrat.id)">Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>

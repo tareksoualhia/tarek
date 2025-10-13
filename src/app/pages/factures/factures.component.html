@@ -1,0 +1,18 @@
+<div class="container mt-4">
+  <h2>Liste des Factures</h2>
+
+  <div *ngIf="factures.length === 0">
+    <p>Aucune facture trouvée.</p>
+  </div>
+
+  <div *ngFor="let facture of factures" class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">Facture {{ facture.numero_facture }}</h5>
+      <p><strong>Code :</strong> {{ facture.code_facture }}</p>
+      <p><strong>Montant total :</strong> {{ facture.montant_total }} TND</p>
+      <p><strong>Reste à payer :</strong> {{ facture.reste_a_payer }} TND</p>
+      <p><strong>Date limite :</strong> {{ facture.date_fin }}</p>
+      <p><strong>Contrat :</strong> {{ facture.contrats.designation }}</p>
+    </div>
+  </div>
+</div>

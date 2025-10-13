@@ -1,0 +1,37 @@
+<div class="container mt-4">
+  <h2>Modifier le contrat</h2>
+  <form [formGroup]="contratForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="code_contrat" class="form-label">Code Contrat</label>
+      <input type="text" id="code_contrat" class="form-control" formControlName="code_contrat">
+    </div>
+
+    <div class="mb-3">
+      <label for="date_debut" class="form-label">Date Début</label>
+      <input type="date" id="date_debut" class="form-control" formControlName="date_debut">
+    </div>
+
+    <div class="mb-3">
+      <label for="date_fin" class="form-label">Date Fin</label>
+      <input type="date" id="date_fin" class="form-control" formControlName="date_fin">
+    </div>
+
+    <div class="mb-3">
+      <label for="designation" class="form-label">Désignation</label>
+      <input type="text" id="designation" class="form-control" formControlName="designation">
+    </div>
+
+    <div class="mb-3">
+      <label for="statut_commercial" class="form-label">Statut Commercial</label>
+      <input type="text" id="statut_commercial" class="form-control" formControlName="statut_commercial">
+    </div>
+
+    <!-- 🆕 Champ Montant -->
+    <div class="mb-3">
+      <label for="montant" class="form-label">Montant</label>
+      <input type="number" id="montant" class="form-control" formControlName="montant" step="0.01" min="0">
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="contratForm.invalid">Mettre à jour</button>
+  </form>
+</div>

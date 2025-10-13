@@ -1,0 +1,39 @@
+<div class="reclamations-container">
+  <h2>📋 Réclamations à traiter</h2>
+
+  <!-- Status Message -->
+  <div *ngIf="message" class="alert" [ngClass]="{ 'success': message.includes('succès'), 'error': message.includes('Erreur') }">
+    {{ message }}
+  </div>
+
+  <!-- Reclamation List -->
+  <div *ngIf="reclamations.length === 0">
+    <p>Aucune réclamation disponible pour le moment.</p>
+  </div>
+
+  <div *ngIf="reclamations.length > 0">
+    <label for="reclamation-select"><strong>Sélectionnez une réclamation :</strong></label>
+    <select id="reclamation-select" [(ngModel)]="selectedReclamationId" class="dropdown">
+      <option [value]="null">-- Choisir une réclamation --</option>
+      <option *ngFor="let r of reclamations" [value]="r.id">
+        {{ r.message | slice:0:60 }}{{ r.message.length > 60 ? '...' : '' }}
+      </option>
+    </select>
+
+    <!-- Response Form -->
+    <div class="response-form">
+      <label for="response"><strong>Votre réponse :</strong></label>
+      <textarea
+        id="response"
+        [(ngModel)]="responseText"
+        rows="5"
+        placeholder="Écrivez votre réponse ici..."
+        class="textarea"
+      ></textarea>
+
+      <button (click)="submitResponse()" [disabled]="loading" class="btn">
+        {{ loading ? '⏳ Envoi en cours...' : '✅ Envoyer la réponse' }}
+      </button>
+    </div>
+  </div>
+</div>

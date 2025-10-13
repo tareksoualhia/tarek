@@ -1,0 +1,43 @@
+<div class="container mt-4">
+  <h2>Ajouter une Facture</h2>
+
+  <form [formGroup]="factureForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label>Code Facture</label>
+      <input formControlName="code_facture" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label>Numéro Facture</label>
+      <input formControlName="numero_facture" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label>Montant Total</label>
+      <input formControlName="montant_total" type="number" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label>Reste à Payer</label>
+      <input formControlName="reste_a_payer" type="number" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label>Date Limite</label>
+      <input formControlName="date_fin" type="date" class="form-control" />
+    </div>
+
+<form [formGroup]="factureForm" (ngSubmit)="onSubmit()">
+  <!-- autres champs -->
+  <select formControlName="contrats_id" class="form-control">
+    <option *ngFor="let contrat of contrats" [value]="contrat.id">
+      {{ contrat.designation }}
+    </option>
+  </select>
+</form>
+
+
+
+    <button class="btn btn-success" type="submit">Ajouter</button>
+  </form>
+</div>
